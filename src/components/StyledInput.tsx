@@ -12,7 +12,7 @@ const Input = styled.input`
 const Label = styled.label`
   font-size: 12px;
   font-weight: 500;
-  color: var(--primary-grey);
+  color: var(--font-grey);
 `;
 
 interface StyledInputProps {
@@ -20,14 +20,15 @@ interface StyledInputProps {
   setValue: Function;
   placeholder?: string;
   type?: string;
+  value: string | number;
 }
 
-export const StyledInput = ({label, placeholder, type='text', setValue}: StyledInputProps): JSX.Element => {
+export const StyledInput = ({label, placeholder, type='text', setValue, value}: StyledInputProps): JSX.Element => {
 
   return (
     <Label>
       <p style={{marginBottom: '5px'}}>{label}</p>
-      <Input placeholder={placeholder} type={type} onChange={e => setValue(e.target.value)}/>
+      <Input placeholder={placeholder} type={type} value={value} onChange={e => setValue(e.target.value)} />
     </Label>
   );
 }

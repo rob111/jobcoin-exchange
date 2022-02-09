@@ -1,14 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {MessageType} from '../domain/MessageType';
 import styled from 'styled-components';
 
 export interface INotification {
-  message: string | null;
+  message: string;
   type: MessageType;
 }
 
-const NotificationWrapper = styled.div<{notification: INotification}>`
-  color: ${props => (props.notification.type === MessageType.SUCCESS ? 'green' : 'red')};
+const NotificationWrapper = styled.div`
   font-size: 12px;
   font-weight: bold;
   display: block;
@@ -16,20 +15,20 @@ const NotificationWrapper = styled.div<{notification: INotification}>`
   height: 20px;
 `;
 
-export const Notification = (notification: INotification): JSX.Element => {
-  const [show, setShow] = useState(true);
-  console.log(notification);
-  console.log(show);
+export const Notification = (
+  {notification, clearNotification}: {notification: INotification, clearNotification: Function}
+  ): JSX.Element => {
+
 
   useEffect(() => {
-    setTimeout(function() {
-      setShow(false);
-    }, 3000)
-  }, []);
+    setTimeout(clearNotification, 3000)
+  });
 
   return (
-    <>
-      {show && <NotificationWrapper notification={notification}>{notification.message}</NotificationWrapper>}
-    </>
+    <NotificationWrapper>
+      <span style={{color: notification.type === MessageType.SUCCESS ? 'green' : 'red'}}>
+        {notification && notification.message}
+      </span>
+    </NotificationWrapper>
   );
 };

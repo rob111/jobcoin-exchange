@@ -2,9 +2,17 @@
 
 Description of project and its separate functionalities.
 
+Login Page
+
+Dashboard
+
+
+
 ## Available Scripts
 
-In the project directory, you can run:
+### `npm install`
+
+Install all required packages.
 
 ### `npm start`
 
@@ -16,12 +24,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-What is left?
- - Make notification bar appear -> disappear
- - Write tests
- - Create a transaction graph
- - Update the transaction graph after coins sent
- - Style app
- - Write README with instructions
+Created couple tests for Login page and BalanCoinCard and App components
+
 
 

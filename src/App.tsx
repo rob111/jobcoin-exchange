@@ -14,8 +14,8 @@ const App = (): JSX.Element => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Dashboard address={address} />} />
-        <Route path='/dashboard' element={<Dashboard address={address} />} />
+        <Route path='/' element={address && <Dashboard address={address} setAddress={setAddress} />} />
+        <Route path='/dashboard' element={address && <Dashboard address={address} setAddress={setAddress} />} />
       </Routes>
     </BrowserRouter>
   );

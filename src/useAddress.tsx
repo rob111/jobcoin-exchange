@@ -10,7 +10,6 @@ export const useAddress: UseAddress = () => {
   const getAddress = (): string => {
     const sessionAddress = sessionStorage.getItem('address');
     const userAddress = sessionAddress && JSON.parse(sessionAddress);
-    console.log(userAddress);
     
     return userAddress && userAddress;
   };

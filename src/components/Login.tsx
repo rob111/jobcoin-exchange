@@ -10,34 +10,10 @@ const LoginWrapper = styled.div`
   align-items: center;
   margin: 100px auto;
 
-  .logo {
-    display: flex;
-    justify-content: center;
+  .logo > img {
     width: 100px;
     height: 100px;
-    border: 1px solid var(--primary-grey);
-    color: var(--primary-grey);
     margin-bottom: 50px;
-    border-radius: 50%;
-    background: 
-         linear-gradient(to top left,
-             rgba(0,0,0,0) 0%,
-             rgba(0,0,0,0) calc(50% - 0.8px),
-             var(--primary-grey),
-             rgba(0,0,0,0) calc(50% + 0.8px),
-             rgba(0,0,0,0) 100%),
-         linear-gradient(to top right,
-             rgba(0,0,0,0) 0%,
-             rgba(0,0,0,0) calc(50% - 0.8px),
-             var(--primary-grey),
-             rgba(0,0,0,0) calc(50% + 0.8px),
-             rgba(0,0,0,0) 100%);
-
-    span {
-      align-self: flex-end;
-      padding: 0.5rem;
-      font-size: 12px;
-    }
   }
 
   .signin-form {
@@ -49,6 +25,7 @@ const LoginWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: var(--white);
     
     .title {
       color: var(--primary-grey);
@@ -78,16 +55,16 @@ export const Login = ({setAddress}: {setAddress: Function}): JSX.Element => {
   return (
     <LoginWrapper>
       <div className='logo'>
-        <img style={{width: '100px', height: '100px'}} src={goldCoin} alt='logo' />
+        <img src={goldCoin} alt='logo' />
       </div>
       <div className='signin-form'>
         <div className='title'>
-          <span>
+          <span className='title-text'>
             Welcome! Sign In With Your Jobcoin Address
           </span>
         </div>
         <form onSubmit={handleSubmit}>
-          <StyledInput label='Jobcoin Address' placeholder='Please enter address' setValue={setJobcoinAddress} />
+          <StyledInput label='Jobcoin Address' placeholder='Please enter address' value={jobcoinAddress} setValue={setJobcoinAddress} />
           <div>
             <Button type="submit">Sign In</Button>
           </div>
