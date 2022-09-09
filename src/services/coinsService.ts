@@ -10,7 +10,7 @@ export interface IBalanceAndTransactions {
   transactions: ITransaction[];
 }
 
-const ENDPOINT = 'http://jobcoin.gemini.com/turtle-deforest/api/';
+const ENDPOINT = URL;
 
 export async function getBalance(address: string): Promise<IBalanceAndTransactions> {
   const data = await fetch(`${ENDPOINT}addresses/${address}`);
